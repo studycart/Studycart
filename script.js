@@ -2,17 +2,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const productGrid = document.querySelector('.product-grid');
     const searchBar = document.getElementById('search-bar');
 
-    // --- Product Data ---
-    // Using the specific PayU link you provided for all products.
-    const paymentLink = 'https://u.payu.in/erYip9aXMuhf';
+    // --- YOUR UPI DETAILS (VERY IMPORTANT: FILL THIS IN) ---
+    // Replace this with your actual UPI ID found in your PhonePe or other UPI app.
+    const yourUpiId = "YOUR_UPI_ID@ybl"; // EXAMPLE: rushikesh.shahane@ybl
+    const yourName = "StudyCart"; // This is the name the user will see
 
     const products = [];
     for (let i = 1; i <= 20; i++) {
+        const productTitle = `Study Material Pack ${i}`;
+        const productPrice = 50.00;
+        
+        // This creates a unique UPI payment link for each product
+        const upiLink = `upi://pay?pa=${yourUpiId}&pn=${encodeURIComponent(yourName)}&am=${productPrice.toFixed(2)}&cu=INR&tn=${encodeURIComponent(productTitle)}`;
+
         products.push({
             id: i,
-            title: `Study Material Pack ${i}`,
-            price: 50.00,
-            payuLink: paymentLink // Using your single link for all items
+            title: productTitle,
+            price: productPrice,
+            paymentLink: upiLink
         });
     }
 
@@ -30,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p class="product-price">₹${product.price.toFixed(2)}</p>
                 <div class="product-buttons">
                     <a href="product_page.html" class="btn btn-secondary">View Details</a>
-                    <a href="${product.payuLink}" class="btn btn-primary" target="_blank">Buy Now</a>
+                    <a href="${product.paymentLink}" class="btn btn-primary">Buy with UPI</a>
                 </div>
             `;
             productGrid.appendChild(productCard);
