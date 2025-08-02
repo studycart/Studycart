@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const productPrice = 50.00;
         
         // This creates a unique UPI payment link for each product
-        const upiLink = `upi://pay?pa=${yourUpiId}&pn=${encodeURIComponent(yourName)}&am=${productPrice.toFixed(2)}&cu=INR&tn=${encodeURIComponent(productTitle)}`;
+        const upiLink = `upi://pay?pa=${9322810794-3@ybl}&pn=${encodeURIComponent(yourName)}&am=${productPrice.toFixed(2)}&cu=INR&tn=${encodeURIComponent(productTitle)}`;
 
         products.push({
             id: i,
