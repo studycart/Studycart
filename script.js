@@ -2,22 +2,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const productGrid = document.querySelector('.product-grid');
     const searchBar = document.getElementById('search-bar');
 
-    // Using the specific PayU link you provided.
-    const paymentLink = 'https://u.payu.in/erYip9aXMuhf';
+    // --- VERY IMPORTANT: FILL IN YOUR UPI DETAILS HERE ---
+    const yourUpiId = '9322810794-3@ybl'; // <--- REPLACE THIS WITH YOUR UPI ID
+    const yourName = 'STUDYCART STORE'; // This is the name the user will see
 
     const products = [];
     for (let i = 1; i <= 20; i++) {
+        const productTitle = `Study Material Pack ${i}`;
+        const productPrice = 1.00; // PRICE UPDATED TO ₹1.00
+        
+        // This creates a unique UPI payment link for each product
+        const upiLink = `upi://pay?pa=${yourUpiId}&pn=${encodeURIComponent(yourName)}&am=${productPrice.toFixed(2)}&cu=INR&tn=${encodeURIComponent(productTitle)}`;
+
         products.push({
             id: i,
-            title: `Study Material Pack ${i}`,
-            price: 1.00, // Keeping price at ₹1.00 as requested before
-            payuLink: paymentLink
+            title: productTitle,
+            price: productPrice,
+            paymentLink: upiLink
         });
     }
 
-    // --- Function to display products ---
     function displayProducts(productsToDisplay) {
-        productGrid.innerHTML = ''; // Clear existing products
+        productGrid.innerHTML = '';
         productsToDisplay.forEach(product => {
             const productCard = document.createElement('div');
             productCard.className = 'product-card';
@@ -30,15 +36,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 <h3 class="product-title">${product.title}</h3>
                 <p class="product-price">₹${product.price.toFixed(2)}</p>
                 <div class="product-buttons">
-                    <a href="product_page.html" class="btn btn-secondary">View Details</a>
-                    <a href="${product.payuLink}" class="btn btn-primary" target="_blank">Pay Now</a>
+                    <a href="#" class="btn btn-secondary">View Details</a>
+                    <a href="${product.paymentLink}" class="btn btn-primary">Pay Now</a>
                 </div>
             `;
             productGrid.appendChild(productCard);
         });
     }
 
-    // --- Search Functionality ---
     searchBar.addEventListener('keyup', (e) => {
         const searchTerm = e.target.value.toLowerCase();
         const filteredProducts = products.filter(product => {
@@ -47,6 +52,5 @@ document.addEventListener('DOMContentLoaded', () => {
         displayProducts(filteredProducts);
     });
 
-    // --- Initial display of all products ---
     displayProducts(products);
 });
