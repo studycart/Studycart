@@ -1,127 +1,93 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-
+/* General Body Styles */
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
+    padding: 0;
     background-color: #f4f7f6;
     color: #333;
+    line-height: 1.6;
 }
 
+/* Container */
 .container {
-    max-width: 1200px;
+    width: 90%;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 20px 0;
 }
 
-header {
+/* Header & Navigation */
+.header {
     background-color: #fff;
-    padding: 20px;
+    padding: 15px 0;
     border-bottom: 1px solid #ddd;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-.header-content {
+.header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 .logo {
-    margin: 0;
-    font-size: 1.5em;
-    color: #2c3e50;
-}
-
-#search-bar {
-    padding: 10px 15px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    width: 250px;
-    font-size: 1em;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 2.2em;
-    margin-bottom: 40px;
-    color: #34495e;
-}
-
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 30px;
-}
-
-.product-card {
-    background-color: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    overflow: hidden;
-    text-align: center;
-    padding: 20px;
-    transition: transform 0.2s, box-shadow 0.2s;
-    display: flex;
-    flex-direction: column;
-}
-
-.product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-.product-image {
-    width: 100%;
-    height: 150px;
-    background-color: #f0f0f0;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #aaa;
-    font-size: 1.2em;
-    border-radius: 5px;
-}
-
-.product-image svg {
-    width: 60px;
-    height: 60px;
-    color: #d1d5db;
-}
-
-.product-title {
-    font-size: 1.2em;
-    font-weight: 600;
-    margin: 10px 0;
-}
-
-.product-price {
-    font-size: 1.4em;
+    font-size: 1.8em;
     font-weight: bold;
-    color: #e74c3c;
-    margin: 10px 0;
+    color: #2c3e50;
+    text-decoration: none;
 }
 
-.product-buttons {
-    margin-top: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.main-nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
+.main-nav li {
+    display: inline-block;
+    margin-left: 25px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #555;
+    font-weight: bold;
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover, .main-nav a.active {
+    color: #3498db;
+}
+
+/* Hero Section */
+.hero {
+    background: #2c3e50;
+    color: #fff;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+/* Buttons */
 .btn {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 12px 25px;
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
-    transition: background-color 0.2s;
-    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .btn-primary {
@@ -131,27 +97,159 @@ header {
 
 .btn-primary:hover {
     background-color: #2980b9;
+    transform: translateY(-2px);
 }
 
-#support {
-    background-color: #fff;
-    border-radius: 8px;
+.btn-secondary {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+}
+
+/* Sections */
+.section {
+    padding: 60px 0;
     text-align: center;
+}
+
+.section-title {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: #2c3e50;
+}
+
+/* Bundle Section */
+.bundle-section {
+    background-color: #ecf0f1;
+}
+
+.bundle-box {
+    background: #fff;
     padding: 40px;
-    margin-top: 40px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    max-width: 700px;
+    margin: 0 auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
-footer {
-    text-align: center;
+.bundle-box h3 {
+    font-size: 2em;
+    margin-top: 0;
+    color: #e74c3c;
+}
+
+.bundle-box .price {
+    font-size: 1.2em;
+    margin: 20px 0;
+}
+
+.bundle-box .price span {
+    text-decoration: line-through;
+    color: #95a5a6;
+    margin-right: 10px;
+}
+
+/* Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    text-align: left;
+}
+
+.product-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.product-info {
     padding: 20px;
-    margin-top: 40px;
-    background-color: #34495e;
-    color: #ecf0f1;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
-@media (max-width: 768px) {
-    .header-content {
-        flex-direction: column;
-        gap: 15px;
-    }
+.product-info h4 {
+    margin: 0 0 10px 0;
+    font-size: 1.4em;
+    color: #34495e;
+}
+
+.product-info .price {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #3498db;
+    margin-bottom: 15px;
+}
+
+.product-info .btn {
+    margin-top: auto;
+    text-align: center;
+}
+
+/* Content Pages (About, Contact, etc.) */
+.content-page {
+    background: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    margin-top: 30px;
+    text-align: left;
+}
+
+.content-page h1 {
+    margin-top: 0;
+}
+
+/* Footer */
+.footer {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 40px;
+}
+
+.footer p {
+    margin: 0 0 10px 0;
+}
+
+.footer-nav a {
+    color: #ecf0f1;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: #3498db;
+}
+
+/* Downloads Page List */
+.download-list {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+.download-list li {
+    background: #fff;
+    margin-bottom: 10px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.download-list a {
+    text-decoration: none;
+    color: #2980b9;
+    font-weight: bold;
+    font-size: 1.1em;
 }
